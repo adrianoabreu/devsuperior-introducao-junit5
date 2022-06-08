@@ -11,7 +11,7 @@ public class AccountTests {
 	//Nomenclatura de um teste
 	// <AÇÃO> should <EFEITO> [when <CENÁRIO>] 
 	@Test
-	public void depositShouldIncreaseBalanceWhenPositiveAmount() {
+	public void depositShouldIncreaseBalanceAndDiscountFeeWhenPositiveAmount() {
 		//Padrão AAA(Arrange, Act, Assert)
 		
 		//Arrange
@@ -25,6 +25,21 @@ public class AccountTests {
 		//Assert
 		Assertions.assertEquals(expectedValue, acc.getBalance());
 		
+	}
+	
+	@Test
+	public void depositShouldDoNothingWhenNegativeAmount() {
+		
+		//Arrange
+		Double expectedValue = 100.0;
+		Account acc          = new Account(1L, expectedValue);
+		Double amount        = -200.00;
+		
+		//Act
+		acc.deposit(amount);
+		
+		//Assert
+		Assertions.assertEquals(expectedValue, acc.getBalance());
 	}
 	
 }
