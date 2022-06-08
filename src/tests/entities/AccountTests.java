@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import entities.Account;
+import tests.factory.AccountFactory;
 
 //Classe que implementa testes com JUnit 5.
 public class AccountTests {
@@ -17,7 +18,7 @@ public class AccountTests {
 		//Arrange
 		Double amount        = 200.00;
 		Double expectedValue = 196.00;
-		Account acc          = new Account(1L, 0.0);
+		Account acc          = AccountFactory.createEmptyAccount();
 		
 		//Act
 		acc.deposit(amount);
@@ -32,7 +33,7 @@ public class AccountTests {
 		
 		//Arrange
 		Double expectedValue = 100.0;
-		Account acc          = new Account(1L, expectedValue);
+		Account acc          = AccountFactory.createAccount(expectedValue);
 		Double amount        = -200.00;
 		
 		//Act
