@@ -16,8 +16,8 @@ public class AccountTests {
 		//Padrão AAA(Arrange, Act, Assert)
 		
 		//Arrange
-		Double amount        = 200.00;
-		Double expectedValue = 196.00;
+		double amount        = 200.00;
+		double expectedValue = 196.00;
 		Account acc          = AccountFactory.createEmptyAccount();
 		
 		//Act
@@ -32,9 +32,9 @@ public class AccountTests {
 	public void depositShouldDoNothingWhenNegativeAmount() {
 		
 		//Arrange
-		Double expectedValue = 100.0;
+		double expectedValue = 100.0;
 		Account acc          = AccountFactory.createAccount(expectedValue);
-		Double amount        = -200.00;
+		double amount        = -200.00;
 		
 		//Act
 		acc.deposit(amount);
@@ -45,11 +45,11 @@ public class AccountTests {
 	
 	@Test
 	public void fullWithdrawShouldClearBalanceAndReturnFullBalance() {
-		Double expectedValue = 0.0;
-		Double initialBalance = 800.00;
+		double expectedValue = 0.0;
+		double initialBalance = 800.00;
 		Account acc = AccountFactory.createAccount(initialBalance);
 		
-		Double result = acc.fullWithdraw();
+		double result = acc.fullWithdraw();
 		
 		
 		System.out.println(expectedValue + " " + acc.getBalance());
